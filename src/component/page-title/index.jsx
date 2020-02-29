@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 class PageTitle extends Component {
     constructor(props) {
         super(props)
-    }
-
-    componentWillMount() {
         document.title = this.props.title + ' - Mall Admin System'
     }
 

@@ -14,7 +14,7 @@ module.exports = {
     // 设置别名
     alias: {
       'page': path.resolve(__dirname, 'src/page'),// 这样配置后page可以指向 src/page 目录,
-      'component': path.resolve(__dirname, 'src/page/component')
+      'component': path.resolve(__dirname, 'src/component')
     }
   },
   module: {
