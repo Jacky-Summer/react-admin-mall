@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 
+
 module.exports = {
   entry: './src/app.jsx',
   output: {
@@ -14,7 +15,9 @@ module.exports = {
     // 设置别名
     alias: {
       'page': path.resolve(__dirname, 'src/page'),// 这样配置后page可以指向 src/page 目录,
-      'component': path.resolve(__dirname, 'src/component')
+      'component': path.resolve(__dirname, 'src/component'),
+      'util': path.resolve(__dirname, 'src/util'),
+      'service': path.resolve(__dirname, 'src/service')
     }
   },
   module: {
@@ -86,8 +89,19 @@ module.exports = {
     })
   ],
   devServer: {
+    port: 8086,
     historyApiFallback: {
       index: '/dist/index.html' // 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html。
+    },
+    proxy: {
+      '/manage': {
+        target: 'http://admintest.happymmall.com',
+        changeOrigin: true
+      },
+      '/user/logout.do': {
+        target: 'http://admintest.happymmall.com',
+        changeOrigin: true
+      }
     }
   }
 };
