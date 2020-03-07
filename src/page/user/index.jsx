@@ -3,6 +3,7 @@ import PageTitle from 'component/page-title/index.jsx'
 import Pagination from 'util/pagination/index.jsx'
 import User from 'service/user-service.js'
 import MUtil from 'util/mutil.js'
+import TableList from 'util/table-list/index.jsx'
 
 const _user = new User()
 const _util = new MUtil()
@@ -57,37 +58,13 @@ class UserList extends Component {
                 </tr>
             )
         })
-        let listError = (
-            <tr className="text-center">
-                <td colSpan="5">
-                    {this.state.firstLoading ? '正在加载数据...' : '没有找到相应的结果'}
-                </td>
-            </tr>
-        )
 
         return (
             <div id="page-wrapper">
                 <PageTitle title="用户列表"/>
-                <div className="row">
-                    <div className="col-md-12">
-                        <table className="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>用户名</th>
-                                    <th>邮箱</th>
-                                    <th>手机号码</th>
-                                    <th>注册时间</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {
-                                this.state.list.length > 0 ? listBody : listError   
-                            }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <TableList tableHeads={['Id','用户名','邮箱','手机号码','注册时间']}>
+                    {listBody}
+                </TableList>
                 <Pagination 
                     current={this.state.pageNum} 
                     total={this.state.total} 
