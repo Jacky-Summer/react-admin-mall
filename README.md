@@ -11,7 +11,15 @@
 
 ## 业务模块
 
+<p align="center">
+	<img src="https://github.com/Jacky-Summer/react-admin-mall/blob/master/img/structure.jpg" alt=""  width="800"/>
+</p>
 
+## 页面展示
+
+<p align="center">
+	<img src="https://github.com/Jacky-Summer/react-admin-mall/blob/master/img/page.jpg" alt=""  width="800"/>
+</p>
 
 ## 项目运行
 
