@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PageTitle from 'component/page-title/index.jsx'
 import CategorySelector from 'page/product/index/category-selector.jsx'
-import FileUploader from 'util/file-uploader/index.jsx'
-import RichEditor from 'util/rich-editor/index.jsx'
 import MUtil from 'util/mutil.js'
 import Product from 'service/product-service.js'
 import './save.scss'

@@ -25,7 +25,6 @@ class ProductCategory extends Component {
         let oldPath = prevProps.location.pathname,
             newPath = this.props.location.pathname,
             newId = this.props.match.params.id
-            console.log('--------------', newId)
         if(oldPath !== newPath) {
             this.setState({
                 parentCategoryId: newId
@@ -40,7 +39,6 @@ class ProductCategory extends Component {
             this.setState({
                 list: res
             })
-            console.log(res)
         }, errMsg => {
             this.setState({
                 list : []

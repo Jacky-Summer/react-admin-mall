@@ -8,7 +8,7 @@ class TableList extends Component{
         }
     }
 
-    componentWillReceiveProps(){
+    UNSAFE_componentWillReceiveProps (){
         // 列表只有在第一次挂载的时候，isFirstLoading为true，其他情况为false
         this.setState({
             firstLoading : false
