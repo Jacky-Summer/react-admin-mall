@@ -8,6 +8,13 @@ class TableList extends Component{
         }
     }
 
+    componentWillReceiveProps(){
+        // 列表只有在第一次挂载的时候，isFirstLoading为true，其他情况为false
+        this.setState({
+            firstLoading : false
+        });
+    }
+
     render() {
         let tableHeader = this.props.tableHeads.map((tableHead, index) => {
             if(typeof tableHead === 'object') {

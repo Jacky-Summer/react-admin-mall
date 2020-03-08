@@ -37,7 +37,7 @@ class Product {
     // 根据父品类id获取品类列表
     getCategoryList(parentCategoryId){
         const formData = new FormData()
-        formData.append('categoryId', parentCategoryId)
+        formData.append('categoryId', parentCategoryId || 0)
         return _util.request({
             type: 'post',
             url: '/manage/category/get_category.do',
@@ -112,7 +112,30 @@ class Product {
             data: formData
         })
     }
-    
+
+    // 修改品类名称
+    updateCategoryName(category) {
+        const formData = new FormData()
+        formData.append('categoryId', category.categoryId)
+        formData.append('categoryName', category.categoryName)
+        return _util.request({
+            type: 'post',
+            url: '/manage/category/set_category_name.do',
+            data: formData
+        })
+    }
+
+    // 新增品类
+    saveCategory(category) {
+        const formData = new FormData()
+        formData.append('categoryName', category.categoryName)
+        formData.append('parentId', category.parentId)
+        return _util.request({
+            type: 'post',
+            url: '/manage/category/add_category.do',
+            data: formData
+        })
+    }
 }
 
 export default Product
